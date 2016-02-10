@@ -10,4 +10,5 @@ int main()
 {
     //pass a function to thread
     thread funcTest1(threadFunc);
+    funcTest1.join();
 }
