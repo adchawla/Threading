@@ -1,14 +1,21 @@
 #include <iostream>
 #include <thread>
 using namespace std;
-void threadFunc()
+
+class myFunctor
 {
-    cout << "Welcome to Multithreading" << endl;
-    
-}
+public:
+    void operator()()
+    {
+        cout << "This is my function object" << endl;
+    }
+};
+
 int main()
 {
     //pass a function to thread
-    thread funcTest1(threadFunc);
-    funcTest1.join();
+    myFunctor myFunc;
+    thread funcTest1(myFunc);
+    if ( funcTest1.joinable())
+        funcTest1.join();
 }
