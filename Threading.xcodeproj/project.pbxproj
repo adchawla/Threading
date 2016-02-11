@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		460CF73F1C6C02F80082E54D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 460CF73E1C6C02F80082E54D /* main.cpp */; };
 		460CF74D1C6C1C640082E54D /* LogTiming.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 460CF74C1C6C1C640082E54D /* LogTiming.cpp */; };
+		460CF7501C6C48390082E54D /* AutoReleaseLock.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 460CF74E1C6C48390082E54D /* AutoReleaseLock.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +29,8 @@
 		460CF73E1C6C02F80082E54D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		460CF74B1C6C1C1D0082E54D /* LogTiming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogTiming.h; sourceTree = "<group>"; };
 		460CF74C1C6C1C640082E54D /* LogTiming.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogTiming.cpp; sourceTree = "<group>"; };
+		460CF74E1C6C48390082E54D /* AutoReleaseLock.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = AutoReleaseLock.cpp; sourceTree = "<group>"; };
+		460CF74F1C6C48390082E54D /* AutoReleaseLock.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = AutoReleaseLock.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,8 @@
 				460CF73E1C6C02F80082E54D /* main.cpp */,
 				460CF74B1C6C1C1D0082E54D /* LogTiming.h */,
 				460CF74C1C6C1C640082E54D /* LogTiming.cpp */,
+				460CF74E1C6C48390082E54D /* AutoReleaseLock.cpp */,
+				460CF74F1C6C48390082E54D /* AutoReleaseLock.hpp */,
 			);
 			path = Threading;
 			sourceTree = "<group>";
@@ -123,6 +128,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460CF7501C6C48390082E54D /* AutoReleaseLock.cpp in Sources */,
 				460CF74D1C6C1C640082E54D /* LogTiming.cpp in Sources */,
 				460CF73F1C6C02F80082E54D /* main.cpp in Sources */,
 			);
