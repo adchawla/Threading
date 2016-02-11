@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		460CF73F1C6C02F80082E54D /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 460CF73E1C6C02F80082E54D /* main.cpp */; };
+		460CF74D1C6C1C640082E54D /* LogTiming.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 460CF74C1C6C1C640082E54D /* LogTiming.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +26,8 @@
 /* Begin PBXFileReference section */
 		460CF73B1C6C02F80082E54D /* Threading */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = Threading; sourceTree = BUILT_PRODUCTS_DIR; };
 		460CF73E1C6C02F80082E54D /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		460CF74B1C6C1C1D0082E54D /* LogTiming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LogTiming.h; sourceTree = "<group>"; };
+		460CF74C1C6C1C640082E54D /* LogTiming.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LogTiming.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +61,8 @@
 			isa = PBXGroup;
 			children = (
 				460CF73E1C6C02F80082E54D /* main.cpp */,
+				460CF74B1C6C1C1D0082E54D /* LogTiming.h */,
+				460CF74C1C6C1C640082E54D /* LogTiming.cpp */,
 			);
 			path = Threading;
 			sourceTree = "<group>";
@@ -118,6 +123,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				460CF74D1C6C1C640082E54D /* LogTiming.cpp in Sources */,
 				460CF73F1C6C02F80082E54D /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -237,6 +243,7 @@
 				460CF7441C6C02F80082E54D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

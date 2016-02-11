@@ -1,5 +1,6 @@
 #include <iostream>
 #include <thread>
+#include "LogTiming.h"
 using namespace std;
 
 class myFunctor
@@ -13,11 +14,13 @@ public:
     void publicFunction()
     {
         cout << "public function of myFunctor class is called" << endl;
+        sleep(2);
     }
 };
 
 int main()
 {
+    LogTiming timer = LogTiming("main");
     //pass a function to thread
     myFunctor myFunc;
     thread funcTest1(&myFunctor::publicFunction, myFunc);
