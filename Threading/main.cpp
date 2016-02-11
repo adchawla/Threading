@@ -32,6 +32,10 @@ int main()
     //pass a function to thread
     size_t bufferSize = 20 * 1024 * 1024;
     char * buffer = new char[bufferSize];
-    CopyFile( "/Users/amandeep/temp/1.mp4", "/Users/amandeep/temp/dest/1.mp4", buffer, bufferSize);
-    CopyFile( "/Users/amandeep/temp/2.mp4", "/Users/amandeep/temp/dest/2.mp4", buffer, bufferSize);
+    thread t1(CopyFile, "/Users/amandeep/temp/1.mp4", "/Users/amandeep/temp/dest/1.mp4", buffer, bufferSize);
+    thread t2(CopyFile, "/Users/amandeep/temp/2.mp4", "/Users/amandeep/temp/dest/2.mp4", buffer, bufferSize);
+    if ( t1.joinable() )
+        t1.join();
+    if ( t2.joinable() )
+        t2.join();
 }
