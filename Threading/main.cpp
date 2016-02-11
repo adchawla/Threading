@@ -1,9 +1,13 @@
 #include <iostream>
 #include <thread>
 #include <fstream>
+#include <mutex>
+
 
 #include "LogTiming.h"
 using namespace std;
+
+mutex m;
 
 void CopyFile(const char * source, const char * destination, char * bufferToUse, size_t bufferSize ) {
     
@@ -11,6 +15,7 @@ void CopyFile(const char * source, const char * destination, char * bufferToUse,
     ofstream destinationFile( destination, ios::out | ios::binary );
     
     while ( sourceFile.is_open() ) {
+        m.lock();
         sourceFile.read( bufferToUse, bufferSize );
         size_t bytesRead = sourceFile.gcount();
         if ( bytesRead > 0 ) {
@@ -18,11 +23,14 @@ void CopyFile(const char * source, const char * destination, char * bufferToUse,
         } else {
             sourceFile.close();
             destinationFile.close();
+            //break;
         }
         if ( sourceFile.bad() || sourceFile.eof() || sourceFile.fail() ) {
             sourceFile.close();
             destinationFile.close();
+            //break;
         }
+        m.unlock();
     }
 }
 
