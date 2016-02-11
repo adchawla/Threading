@@ -23,12 +23,12 @@ void CopyFile(const char * source, const char * destination, char * bufferToUse,
         } else {
             sourceFile.close();
             destinationFile.close();
-            //break;
+            break;
         }
         if ( sourceFile.bad() || sourceFile.eof() || sourceFile.fail() ) {
             sourceFile.close();
             destinationFile.close();
-            //break;
+            break;
         }
         m.unlock();
     }
