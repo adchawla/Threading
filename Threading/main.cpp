@@ -2,6 +2,7 @@
 #include <thread>
 #include <fstream>
 #include <mutex>
+#include <condition_variable>
 
 #include "AutoReleaseLock.hpp"
 #include "LogTiming.h"
@@ -12,6 +13,7 @@ using namespace std;
 char buffer[ N ];
 size_t countOfItmes = 0;
 mutex mx;
+condition_variable cvProducer, cvConsumer;
 
 #include <stdlib.h>
 
@@ -19,12 +21,12 @@ void Producer() {
 	while ( true ) {
 		char item = rand() % 26 + 'A';
 		{
-			AutoReleaseLock lock( mx );
+			std::unique_lock<std::mutex> lck( mx );
 			if ( countOfItmes == N - 1 ) {
-				std::cerr << "Could not Push anything \n";
-				continue;
+				cvProducer.wait( lck );
 			}
 			buffer[ countOfItmes++ ] = item;
+			cvConsumer.notify_one();
 			std::cerr << "Pushed " << item << " at " << countOfItmes - 1 << " location\n";
 		}
 		std::this_thread::sleep_for( std::chrono::milliseconds( rand() % 1000 ) );
@@ -34,12 +36,12 @@ void Producer() {
 void Consumer() {
 	while ( true ) {
 		{
-			AutoReleaseLock lock( mx );
+			std::unique_lock<std::mutex> lck( mx );
 			if ( countOfItmes == 0 ) {
-				std::cerr << "Could not Pull anything \n";
-				continue;
+				cvConsumer.wait( lck );
 			}
 			char item = buffer[ --countOfItmes ];
+			cvProducer.notify_one();
 			std::cerr << "Pulled " << item << " from " << countOfItmes << " location\n";
 		}
 		std::this_thread::sleep_for( std::chrono::milliseconds( rand() % 1000 ) );
