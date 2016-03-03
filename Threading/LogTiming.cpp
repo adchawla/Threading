@@ -8,6 +8,7 @@
 
 #include <iostream>
 #include "LogTiming.h"
+#include <iostream>
 
 using namespace std;
 
@@ -18,5 +19,5 @@ LogTiming::LogTiming(const char * tagTimer ) {
 
 LogTiming::~LogTiming() {
     std::time_t endTime = time(NULL);
-    std::cout<<mTimerTag<<" took about " << difftime(endTime, mStartTime )<< " seconds.\n";
+    std::cout<<mTimerTag.c_str()<<" took about " << difftime(endTime, mStartTime )<< " seconds.\n";
 }
